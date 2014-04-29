@@ -9,15 +9,54 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.7/angular.min.js"></script>
 	<script src="js/ParentView.js"></script>
 	<style>
+		.navbar-brand img {
+			max-width: 200px;
+		}
+		.topbar h2 {
+			margin-top: 90px;
+		}
 		.topbar li{
 			list-style-type: none;
 			display: inline;
 
 		}
+		.table img {
+			max-width: 30px;
+		}
+		.navbar {
+			background-color: #0C7EB3;
+			min-height: 80px;
+		}
+		.navbar-default .navbar-nav > li > a {
+			margin-top: 13px;
+			color: #fff;
+		}
 
 	</style>
 </head>
 <body>
+	  <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><img src="images/classytasks.png" alt=""></a>
+        </div>
+        <div class="navbar-collapse collapse">
+         
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../navbar/">For Parents</a></li>
+            <li><a href="../navbar-static-top/">For Teachers</a></li>
+            <li class="active"><a href="./">Sign Up</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
 	<div class="container">
 		<div class="topbar">
 			<h2>Whatever Help</h2>
@@ -49,20 +88,41 @@
 	        </tr>
 	      </tbody>
 	    </table>
-	    <!--   <span>{{remaining()}} of {{todos.length}} remaining</span>
-	      [ <a href="" ng-click="archive()">archive</a> ]
-	      <ul class="unstyled">
-	        <li ng-repeat="todo in todos">
-	          <input type="checkbox" ng-model="todo.done">
-	          <span class="done-{{todo.done}}">{{todo.text}}</span>
-	        </li>
-	      </ul>
-	      <form ng-submit="addNeed()">
-	        <input type="text" ng-model="todoText"  size="30"
-	               placeholder="add new todo here">
-	        <input class="btn-primary" type="submit" value="add">
-	      </form> -->
+
 	    </div>
+
+	    <div ng-controller="ModalDemoCtrl">
+		    <script type="text/ng-template" id="signup.html">
+		        <div class="modal-header">
+		            <h3>Task Signup</h3>
+		        </div>
+		        <form ng-submit="submit()">
+		          <div class="modal-body">
+		          	<div class="form-group">
+		            	<label>Name</label>
+		            	<input type="text" ng-model="data.name" />
+		            </div>
+		          	<div class="form-group">	
+		            	<label>Child</label>
+		            	<input type="text" ng-model="data.child" />
+		            </div>
+		          	<div class="form-group">	
+		            	<label>Cell Phone</label>
+		            	<input type="text" ng-model="data.phone" />
+		            </div>
+		          	<div class="form-group">	
+		            	<label>Email</label>
+		            	<input type="text" ng-model="data.email" />
+		            </div>	
+		          </div>
+		          <div class="modal-footer">
+		              <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+		              <input type="submit" class="btn primary-btn" value="Submit" />
+		          </div>
+		        </form>
+		    </script>
+		 </div>
+		 <!-- <button class="btn btn-primary" ng-click="signup()">Signup</button> -->
 	</div>    
 </body>
 </html>
