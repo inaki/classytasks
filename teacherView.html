@@ -42,7 +42,7 @@
 			<h2>Whatever Help</h2>
 			<ul class="pull-right">
 				<li><a href="#" ng-click="addtask()"><span class="glyphicon glyphicon-plus-sign" ></span>&nbsp;&nbsp;add need</a>&nbsp;&nbsp;&nbsp;</li>
-				<li><a href="#"><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;contact</a></li>
+				<li><a href="#" ng-click="contact()"><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;contact</a></li>
 			</ul>
 		</div>
 	</div>
@@ -119,8 +119,22 @@
         </form>
     </script>
     
-    </script>
+  
 
+    <script type="text/ng-template" id="contact.html">
+        <div class="modal-header">
+            <h3>Contact the Teacher</h3>
+        </div>
+        <form ng-submit="submit()">
+          
+				
+          </div>
+          <div class="modal-footer">
+              <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+              <input type="submit" class="btn primary-btn" value="Submit" />
+          </div>
+        </form>
+    </script>
 
     
     

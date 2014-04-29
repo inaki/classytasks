@@ -62,6 +62,29 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
             }
         });
     };
-           
+    $scope.contact = function () {
+
+        $modal.open({
+            templateUrl: 'contact.html',
+            backdrop: true,
+            windowClass: 'modal',
+            controller: function ($scope, $modalInstance, $log, data) {
+                $scope.data = data;
+                $scope.submit = function () {
+                    $log.log('Submitting info.');
+                    $log.log(JSON.stringify(data));
+                    $modalInstance.dismiss('cancel');
+                }
+                $scope.cancel = function () {
+                    $modalInstance.dismiss('cancel');
+                };
+            },
+            resolve: {
+                data: function () {
+                    return $scope.data;
+                }
+            }
+        });
+    };        
 };
 
