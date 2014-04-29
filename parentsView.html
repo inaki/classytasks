@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="taskSignup">
 <head>
 	<meta charset="UTF-8">
 	<title>Classy Tasks</title>
@@ -8,7 +8,8 @@
 	<link rel="stylesheet" href="css/footer.css">
 
 	<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.7/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
 	<script src="js/ParentView.js"></script>
 
 </head>
@@ -57,7 +58,7 @@
 	      </thead>
 	      <tbody ng-repeat="parent in parents">
 	        <tr>
-	          <td><button class="btn btn-success">Sign Up</button></td>
+	          <td><button class="btn btn-success" ng-click="signup()">Sign Up</button></td>
 	          <td>{{parent.name}}</td>
 	          <td>{{parent.need}}</td>
 	          <td>{{parent.date}}</td>
@@ -101,11 +102,58 @@
 		    </script>
 		 </div>
 		 <!-- <button class="btn btn-primary" ng-click="signup()">Signup</button> -->
-	</div>    
+	</div> 
+
+	
+
+	<div ng-controller="ModalDemoCtrl">
+    <script type="text/ng-template" id="signup.html">
+        <div class="modal-header">
+            <h3>Task Signup</h3>
+        </div>
+        <form ng-submit="submit()">
+          <div class="modal-body">
+          	<div class="form-group">
+            	<label>Name</label>
+            	<input type="text" ng-model="data.name" />
+            </div>
+          	<div class="form-group">	
+            	<label>Child</label>
+            	<input type="text" ng-model="data.child" />
+            </div>
+          	<div class="form-group">	
+            	<label>Cell Phone</label>
+            	<input type="text" ng-model="data.phone" />
+            </div>
+          	<div class="form-group">	
+            	<label>Email</label>
+            	<input type="text" ng-model="data.email" />
+            </div>	
+          </div>
+          <div class="modal-footer">
+              <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+              <input type="submit" class="btn primary-btn" value="Submit" />
+          </div>
+        </form>
+    </script>
+    
+    </script>
+
+
+    <button class="btn btn-primary" ng-click="signup()">Signup</button>
+    
+</div>
+
+
+
+
+
+
+
 	<div id="footer">
       <div class="container">
         <p class="text-muted">You can see the metrics <a href="teacherMetricsView.html">here.</a></p>
-        
+
       </div>
     </div> 
 </body>
