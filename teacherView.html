@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="addtask">
 <head>
 	<meta charset="UTF-8">
 	<title>Classy Tasks</title>
@@ -37,13 +37,15 @@
       </div>
     </div>
 	<div class="container">
+	<div ng-controller="ModalDemoCtrl">
 		<div class="topbar">
 			<h2>Whatever Help</h2>
 			<ul class="pull-right">
-				<li><a href="#"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;add need</a>&nbsp;&nbsp;&nbsp;</li>
+				<li><a href="#" ng-click="addtask()"><span class="glyphicon glyphicon-plus-sign" ></span>&nbsp;&nbsp;add need</a>&nbsp;&nbsp;&nbsp;</li>
 				<li><a href="#"><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;contact</a></li>
 			</ul>
 		</div>
+	</div>
 		<hr>
 	    <div ng-controller="TeacherCtrl">
 	    <table class="table">
@@ -68,21 +70,65 @@
 	        </tr>
 	      </tbody>
 	    </table>
-	    <!--   <span>{{remaining()}} of {{todos.length}} remaining</span>
-	      [ <a href="" ng-click="archive()">archive</a> ]
-	      <ul class="unstyled">
-	        <li ng-repeat="todo in todos">
-	          <input type="checkbox" ng-model="todo.done">
-	          <span class="done-{{todo.done}}">{{todo.text}}</span>
-	        </li>
-	      </ul>
-	      <form ng-submit="addNeed()">
-	        <input type="text" ng-model="todoText"  size="30"
-	               placeholder="add new todo here">
-	        <input class="btn-primary" type="submit" value="add">
-	      </form> -->
+	  
 	    </div>
 	</div> 
+
+
+	<div ng-controller="ModalDemoCtrl">
+    
+    <script type="text/ng-template" id="addtask.html">
+        <div class="modal-header">
+            <h3>Add Task</h3>
+        </div>
+        <form ng-submit="submit()">
+          <div class="modal-body">
+          	<div class="form-group">
+            	<label>Event</label>
+            	<input type="text" ng-model="data.event" />
+            </div>
+          	<div class="form-group">	
+            	<label>Need</label>
+            	<input type="text" ng-model="data.need" />
+            </div>
+          	<div class="form-group">	
+            	<label>Description</label>
+            	<input type="text" ng-model="data.description" />
+            </div>
+          	<div class="form-group">	
+            	<label>Points</label>
+            	<input type="number" ng-model="data.points" />
+            </div>
+          <div >  
+          <div class="form-horizontal">
+            <div class="input-group">
+              <label>Start Date</label>
+              <input type="text" class="form-control" datepicker-popup="shortDate" ng-model="data.startdate" is-open="$parent.opened" ng-required="false" close-text="Close" />
+            </div>
+            <div class="input-group">
+              <label>End Date</label>
+              <input type="text" class="form-control" datepicker-popup="shortDate" ng-model="data.enddate" is-open="$parent.opened" ng-required="false" close-text="Close" />
+            </div>            
+          </div>
+          </div>		
+          </div>
+          <div class="modal-footer">
+              <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+              <input type="submit" class="btn primary-btn" value="Submit" />
+          </div>
+        </form>
+    </script>
+    
+    </script>
+
+
+    
+    
+</div>
+
+
+
+
 	<div id="footer">
       <div class="container">
         <p class="text-muted">You can see the metrics <a href="teacherMetricsView.html">here.</a></p>
