@@ -1,0 +1,22 @@
+.navbar-brand img {
+			max-width: 200px;
+		}
+		.topbar h2 {
+			margin-top: 90px;
+		}
+		.topbar li{
+			list-style-type: none;
+			display: inline;
+
+		}
+		.table img {
+			max-width: 30px;
+		}
+		.navbar {
+			background-color: #0C7EB3;
+			min-height: 80px;
+		}
+		.navbar-default .navbar-nav > li > a {
+			margin-top: 13px;
+			color: #fff;
+		}
