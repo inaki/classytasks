@@ -10,14 +10,7 @@ function ParentCtrl($scope) {
     {name:'Volunteers Year', need: 'Trash Bags', date: '05/05/14-05/22/14', description: 'This is a party to reward the good work of students in the Math class', vname: 'Elmoso', vimg: 'images/elmo.png', points: 27}
   ];
 
- }
-
- var ModalDemoCtrl = function ($scope, $modal, $log) {
-
-    $scope.data = {
-    };
-
-    $scope.signup = function () {
+  $scope.signup = function () {
 
         $modal.open({
             templateUrl: 'signup.html',
@@ -41,109 +34,14 @@ function ParentCtrl($scope) {
             }
         });
     };
-    $scope.addtask = function () {
+}
 
-        $modal.open({
-            templateUrl: 'addtask.html',
-            backdrop: true,
-            windowClass: 'modal',
-            controller: function ($scope, $modalInstance, $log, data) {
-                $scope.data = data;
-                $scope.submit = function () {
-                    $log.log('Submitting info.');
-                    $log.log(JSON.stringify(data));
-                    $modalInstance.dismiss('cancel');
-                }
-                $scope.cancel = function () {
-                    $modalInstance.dismiss('cancel');
-                };
-            },
-            resolve: {
-                data: function () {
-                    return $scope.data;
-                }
-            }
-        });
-    };
-    $scope.contact = function () {
-
-        $modal.open({
-            templateUrl: 'contact.html',
-            backdrop: true,
-            windowClass: 'modal',
-            controller: function ($scope, $modalInstance, $log, data) {
-                $scope.data = data;
-                $scope.submit = function () {
-                    $log.log('Submitting info.');
-                    $log.log(JSON.stringify(data));
-                    $modalInstance.dismiss('cancel');
-                }
-                $scope.cancel = function () {
-                    $modalInstance.dismiss('cancel');
-                };
-            },
-            resolve: {
-                data: function () {
-                    return $scope.data;
-                }
-            }
-        });
-    };        
-};
 
 var ModalDemoCtrl = function ($scope, $modal, $log) {
 
     $scope.data = {
     };
 
-    $scope.signup = function () {
-
-        $modal.open({
-            templateUrl: 'signup.html',
-            backdrop: true,
-            windowClass: 'modal',
-            controller: function ($scope, $modalInstance, $log, data) {
-                $scope.data = data;
-                $scope.submit = function () {
-                    $log.log('Submitting info.');
-                    $log.log(JSON.stringify(data));
-                    $modalInstance.dismiss('cancel');
-                }
-                $scope.cancel = function () {
-                    $modalInstance.dismiss('cancel');
-                };
-            },
-            resolve: {
-                data: function () {
-                    return $scope.data;
-                }
-            }
-        });
-    };
-    $scope.addtask = function () {
-
-        $modal.open({
-            templateUrl: 'addtask.html',
-            backdrop: true,
-            windowClass: 'modal',
-            controller: function ($scope, $modalInstance, $log, data) {
-                $scope.data = data;
-                $scope.submit = function () {
-                    $log.log('Submitting info.');
-                    $log.log(JSON.stringify(data));
-                    $modalInstance.dismiss('cancel');
-                }
-                $scope.cancel = function () {
-                    $modalInstance.dismiss('cancel');
-                };
-            },
-            resolve: {
-                data: function () {
-                    return $scope.data;
-                }
-            }
-        });
-    };
     $scope.contact = function () {
 
         $modal.open({
